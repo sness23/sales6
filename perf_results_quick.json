@@ -1,0 +1,44 @@
+[
+  {
+    "test_name": "Quick: User Events (small)",
+    "operation": "append",
+    "count": 100,
+    "duration_seconds": 0.010448679095134139,
+    "throughput_ops_per_sec": 9570.58773549368,
+    "latencies_ms": null,
+    "min_ms": 0.09669107384979725,
+    "max_ms": 0.18079206347465515,
+    "mean_ms": 0.10448679095134139,
+    "p50_ms": 0.09965291246771812,
+    "p95_ms": 0.14096591621637344,
+    "p99_ms": 0.18079206347465515
+  },
+  {
+    "test_name": "Quick: Order Events (medium)",
+    "operation": "append",
+    "count": 100,
+    "duration_seconds": 0.01583174243569374,
+    "throughput_ops_per_sec": 6316.424133741792,
+    "latencies_ms": null,
+    "min_ms": 0.13198214583098888,
+    "max_ms": 0.37986086681485176,
+    "mean_ms": 0.1583174243569374,
+    "p50_ms": 0.15352992340922356,
+    "p95_ms": 0.18413597717881203,
+    "p99_ms": 0.37986086681485176
+  },
+  {
+    "test_name": "Quick: Read Users",
+    "operation": "read",
+    "count": 100,
+    "duration_seconds": 0.00027828849852085114,
+    "throughput_ops_per_sec": 359339.32063853287,
+    "latencies_ms": null,
+    "min_ms": 0.002588145434856415,
+    "max_ms": 0.007662922143936157,
+    "mean_ms": 0.0027828849852085114,
+    "p50_ms": 0.0026728957891464233,
+    "p95_ms": 0.0030740629881620407,
+    "p99_ms": 0.007662922143936157
+  }
+]

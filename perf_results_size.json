@@ -1,0 +1,58 @@
+[
+  {
+    "test_name": "Size Test: small",
+    "operation": "append",
+    "count": 500,
+    "duration_seconds": 0.05261559225618839,
+    "throughput_ops_per_sec": 9502.886474516352,
+    "latencies_ms": null,
+    "min_ms": 0.09723613038659096,
+    "max_ms": 0.341842882335186,
+    "mean_ms": 0.10523118451237679,
+    "p50_ms": 0.10270997881889343,
+    "p95_ms": 0.11327001266181469,
+    "p99_ms": 0.1471939031034708
+  },
+  {
+    "test_name": "Size Test: medium",
+    "operation": "append",
+    "count": 500,
+    "duration_seconds": 0.05712353112176061,
+    "throughput_ops_per_sec": 8752.960298169142,
+    "latencies_ms": null,
+    "min_ms": 0.10709092020988464,
+    "max_ms": 0.44722319580614567,
+    "mean_ms": 0.11424706224352121,
+    "p50_ms": 0.11085206642746925,
+    "p95_ms": 0.12381304986774921,
+    "p99_ms": 0.1630629412829876
+  },
+  {
+    "test_name": "Size Test: large",
+    "operation": "append",
+    "count": 500,
+    "duration_seconds": 0.06364231486804783,
+    "throughput_ops_per_sec": 7856.408130921543,
+    "latencies_ms": null,
+    "min_ms": 0.11832197196781635,
+    "max_ms": 0.36662397906184196,
+    "mean_ms": 0.12728462973609567,
+    "p50_ms": 0.122767873108387,
+    "p95_ms": 0.15396904200315475,
+    "p99_ms": 0.18243584781885147
+  },
+  {
+    "test_name": "Size Test: huge",
+    "operation": "append",
+    "count": 500,
+    "duration_seconds": 0.10944970999844372,
+    "throughput_ops_per_sec": 4568.3081298900615,
+    "latencies_ms": null,
+    "min_ms": 0.20453892648220062,
+    "max_ms": 0.7314479444175959,
+    "mean_ms": 0.21889941999688745,
+    "p50_ms": 0.20965514704585075,
+    "p95_ms": 0.25889487005770206,
+    "p99_ms": 0.4440790507942438
+  }
+]
