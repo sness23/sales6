@@ -1,0 +1,9 @@
+# Core dependencies (Python 3.10+)
+# No dependencies needed for basic immutable_log.py!
+
+# gRPC dependencies (for service layer)
+grpcio>=1.60.0
+grpcio-tools>=1.60.0
+
+# Optional: for better performance
+# grpcio[protobuf]>=1.60.0

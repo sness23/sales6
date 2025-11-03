@@ -1,0 +1,106 @@
+syntax = "proto3";
+
+package immutablelog;
+
+// Immutable Event Log Service
+service ImmutableLogService {
+  // Append an entry to a partition
+  rpc Append(AppendRequest) returns (AppendResponse);
+
+  // Read entries from a partition
+  rpc Read(ReadRequest) returns (stream ReadResponse);
+
+  // Verify integrity of a partition
+  rpc Verify(VerifyRequest) returns (VerifyResponse);
+
+  // List all available partitions
+  rpc ListPartitions(ListPartitionsRequest) returns (ListPartitionsResponse);
+
+  // Get the last entry from a partition (useful for sync)
+  rpc GetLastEntry(GetLastEntryRequest) returns (GetLastEntryResponse);
+
+  // Tail a partition (streaming, like tail -f)
+  rpc Tail(TailRequest) returns (stream TailResponse);
+}
+
+// Append an entry to the log
+message AppendRequest {
+  string partition = 1;
+  string data = 2;  // JSON-encoded data
+}
+
+message AppendResponse {
+  uint64 seq = 1;
+  string timestamp = 2;
+  string hash = 3;
+  bool success = 4;
+  string error = 5;
+}
+
+// Read entries from the log
+message ReadRequest {
+  string partition = 1;
+  optional uint64 start_seq = 2;  // Start from this sequence number
+  optional uint64 limit = 3;       // Max number of entries to return
+}
+
+message ReadResponse {
+  uint64 seq = 1;
+  string timestamp = 2;
+  string partition = 3;
+  string prev_hash = 4;
+  string data = 5;  // JSON-encoded data
+  string hash = 6;
+}
+
+// Verify partition integrity
+message VerifyRequest {
+  string partition = 1;
+}
+
+message VerifyResponse {
+  bool valid = 1;
+  uint64 entries_verified = 2;
+  string final_hash = 3;
+  string error = 4;
+}
+
+// List all partitions
+message ListPartitionsRequest {
+  // Empty for now, could add filters later
+}
+
+message ListPartitionsResponse {
+  repeated string partitions = 1;
+}
+
+// Get last entry
+message GetLastEntryRequest {
+  string partition = 1;
+}
+
+message GetLastEntryResponse {
+  bool found = 1;
+  optional uint64 seq = 2;
+  optional string timestamp = 3;
+  optional string partition = 4;
+  optional string prev_hash = 5;
+  optional string data = 6;
+  optional string hash = 7;
+}
+
+// Tail the log (streaming)
+message TailRequest {
+  string partition = 1;
+  optional uint64 start_seq = 2;  // Start from this sequence, or from end if not specified
+  bool follow = 3;                 // Keep streaming new entries
+}
+
+message TailResponse {
+  uint64 seq = 1;
+  string timestamp = 2;
+  string partition = 3;
+  string prev_hash = 4;
+  string data = 5;
+  string hash = 6;
+}
